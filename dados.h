@@ -18,14 +18,6 @@ typedef struct
     Endereco *endereco;
 } Aluno;
 
-typedef struct
-{
-    char matricula[10];
-    char cpf[12];
-    char nome[50];
-    Aluno *atualizarAluno;
-} Atualizar_aluno;
-
 Endereco *criarEndereco(char *logradouro,
                         char *bairro,
                         char *cidade,
@@ -37,14 +29,7 @@ Aluno *criarAluno(char *matricula,
                   char *nome,
                   Endereco *end);
 
-Atualizar_aluno *atualizarAluno(char *matricula,
-                                char *cpf,
-                                char *nome,
-                                Endereco *end);
-
-
 void destruirAluno(Aluno *aluno);
 void destruirEndereco(Endereco *);
-void atualizarAluno(Atualizar_aluno *aluno);
 
 #endif

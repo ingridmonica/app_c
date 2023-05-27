@@ -65,6 +65,47 @@ Endereco *criarEndereco(char *logradouro,
     return endereco;
 }
 
+Professor *criarProfessor(char *matricula,
+                          char *cpf,
+                          char *nome,
+                          Endereco *end)
+{
+    Professor *professor = (Professor *)malloc(sizeof(Professor));
+    if (professor)
+    {
+        strcpy(professor->matricula, matricula);
+        strcpy(professor->cpf, cpf);
+        strcpy(professor->nome, nome);
+        professor->endereco = end;
+    }
+    else
+    {
+        perror("Não há memória disponível. Encerrando\n\n");
+    }
+    return professor;
+}
+
+Turma *criarTurma(char *codigo,
+                  char *nome_disciplina,
+                  Professor *professor,
+                  char *lista_alunos,
+                  char *media_turma)
+{
+    Turma *turma = (Turma *)malloc(sizeof(Turma));
+    if (turma)
+    {
+        strcpy(turma->codigo, codigo);
+        strcpy(turma->nome_disciplina, nome_disciplina);
+        turma->professor = professor;
+        strcpy(turma->lista_alunos, lista_alunos);
+        turma->media_turma = media_turma;
+    }
+    else
+    {
+        perror("Não há memória disponível. Encerrando\n\n");
+    }
+    return turma;
+}
 
 void destruirAluno(Aluno *aluno)
 {
@@ -80,4 +121,16 @@ void destruirEndereco(Endereco *endereco)
 {
     if (endereco)
         free(endereco);
+}
+
+void destruirProfessor(Professor *professor)
+{
+    if (professor)
+        free(professor);
+}
+
+void destruirTurma(Turma *turma)
+{
+    if (turma)
+        free(turma);
 }
