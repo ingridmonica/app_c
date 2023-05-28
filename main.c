@@ -25,11 +25,11 @@ int main(int argc, char const *argv[])
             tratador_menu_aluno(alunos, &qtd_atual_aluno);
             break;
         case 2:
-            printf("Calma que o menu do prof ja vem");
             tratador_menu_prof(professores, &qtd_atual_prof);
             break;
         case 3:
-            tratador_menu_turma(turmas, &qtd_atual_turma, professores, &qtd_atual_prof);
+            printf("Calma que o menu da turma ja vem");
+            //tratador_menu_turma(turmas, &qtd_atual_turma, professores, &qtd_atual_prof);
             break;
         case 4:
             printf("Calma q as estatisticas ja vem\n");
@@ -38,6 +38,6 @@ int main(int argc, char const *argv[])
         case 5:
             printf("Finalizando app...\n\n");
         }
-    } while (op_menu_principal>0 && op_menu_principal<6 );
+    } while (op_menu_principal>0 && op_menu_principal<5 );
     return 0;
 }

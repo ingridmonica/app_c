@@ -57,7 +57,7 @@ Professor *criarProfessor(
 Turma *criarTurma(
                 char *codigo,
                 char *nome_disciplina,
-                Professor *professor,
+                char *matriculaProf,
                 char *lista_alunos,
                 char media_turma);
 
