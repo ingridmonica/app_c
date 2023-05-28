@@ -21,8 +21,20 @@ int main(int argc, char const *argv[])
             tratador_menu_aluno(alunos, &qtd_atual_aluno);
             break;
         case 2:
+            printf("Calma que o menu do prof ja vem");
+            //tratador_menu_professor();
+            break;
+        case 3:
+            printf("Calma que o menu da turma ja vem");
+            //tratador_menu_turma();
+            break;
+        case 4:
+            printf("Calma q as estatisticas ja vem\n");
+            //tratador_menu_estatisticas();
+            break;
+        case 5:
             printf("Finalizando app...\n\n");
         }
-    } while (op_menu_principal != 2);
+    } while (op_menu_principal != 5);
     return 0;
 }

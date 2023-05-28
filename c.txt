@@ -1,0 +1,47 @@
+
+Professor *construir_professor()
+{
+    Professor professor;
+    printf("Matrícula\t> ");
+    fgets(professor.matricula, 9, stdin);
+    printf("CPF\t> ");
+    fgets(professor.cpf, 9, stdin);
+    printf("Nome\t> ");
+    fgets(professor.nome, 49, stdin);
+    
+    return criarProfessor(professor.matricula, professor.cpf, professor.nome);
+}
+
+Turma * construir_turma()
+{
+    Turma turma;
+    printf("Código\t> ");
+    fgets(turma.codigo, 9, stdin);
+    printf("Nome da disciplina\t> ");
+    fgets(turma.nome_disciplina, 49, stdin);
+    printf("Professor\t> ");
+    fgets(turma.professor, 49, stdin);
+    printf("Lista de Alunos\t> ");
+    fgets(turma.lista_alunos, 49, stdin);
+    printf("Média da turma\t> ");
+    fgets(turma.media_turma, 49, stdin);
+
+    return criarTurma(turma.codigo, turma.nome_disciplina, turma.professor, turma.lista_alunos, turma.media_turma);
+}
+
+void imprimir_professor(Professor *professor)
+{
+    printf("Matrícula: %s", professor->matricula);
+    printf("Nome: %s", professor->nome);
+    printf("CPF: %s", professor->cpf);
+    printf("Endereço: %s", professor->endereco);
+}
+
+void imprimir_turma(Turma *turma)
+{
+    printf("Código: %s", turma->codigo);
+    printf("Nome da disciplina: %s", turma->nome_disciplina);
+    printf("Professor: %s", turma->professor);
+    printf("Lista de Alunos: %s", turma->lista_alunos);
+    printf("Média da turma: %s", turma->media_turma);
+}

@@ -10,17 +10,17 @@ int menu_principal()
         printf("1 - Menu aluno\n");
         printf("2 - Menu professor\n");
         printf("3 - Menu turma\n");
-        printf("4 - Estatísticas\n");
+        printf("4 - Estatisticas\n");
         printf("5 - Sair\n");
         printf("Opcao > ");
         scanf("%d", &opcao);
         getchar();
-        if (opcao > 0 && opcao < 5)
+        if (opcao > 0 && opcao < 6)
         {
             return opcao;
-        }
+        } else {
         printf("Opcao inválida!! Tente novamente\n\n");
-
+        }
     } while (1);
 }
 
@@ -41,9 +41,9 @@ int menu_crud_aluno()
         if (opcao > 0 && opcao < 6)
         {
             return opcao;
-        }
+        } else {
         printf("Opcao inválida!! Tente novamente\n\n");
-
+        }
     } while (1);
 }
 
@@ -98,10 +98,10 @@ int menu_estatisticas()
     int opcao = 0;
     do
     {
-        printf("== Menu estatísticas==\n\n");
+        printf("== Menu estatisticas==\n\n");
         printf("1 - Lista de Professores\n");
         printf("2 - Professores sem turma\n");
-        printf("3 - Média de notas geral\n");
+        printf("3 - Media de notas geral\n");
         printf("4 - Voltar menu anterior\n");
         printf("Opcao > ");
         scanf("%d", &opcao);
