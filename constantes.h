@@ -4,7 +4,7 @@
 #define MAX_ALUNO 100
 #define MAX_PROFESSOR 100
 #define MAX_TURMA 100
-#define MAX_ALUNOS_TURMA 40
+#define MAX_ALUNOS_TURMA 100
 
 
 #endif

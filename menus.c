@@ -87,8 +87,8 @@ int menu_crud_turma()
         if (opcao > 0 && opcao < 6)
         {
             return opcao;
-        }
-        printf("Opcao inválida!! Tente novamente\n\n");
+        } else {
+        printf("Opcao inválida!! Tente novamente\n\n");}
 
     } while (1);
 }
