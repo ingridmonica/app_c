@@ -82,7 +82,7 @@ int menu_crud_turma()
         printf("4 - Deletar turma\n");
         printf("5 - Voltar menu anterior\n");
         printf("Opcao > ");
-        scanf("%d", &opcao);
+        scanf("%d", &opcao); 
         getchar();
         if (opcao > 0 && opcao < 6)
         {

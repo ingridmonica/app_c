@@ -9,8 +9,10 @@ int main(int argc, char const *argv[])
 {
     int op_menu_principal = 0;
     Aluno *alunos[MAX_ALUNO] = {NULL};
+    Professor *professores[MAX_PROFESSOR] = {NULL};
 
     int qtd_atual_aluno = 0;
+    int qtd_atual_prof = 0;
 
     do
     {
@@ -22,7 +24,7 @@ int main(int argc, char const *argv[])
             break;
         case 2:
             printf("Calma que o menu do prof ja vem");
-            //tratador_menu_professor();
+            tratador_menu_prof(professores, &qtd_atual_prof);
             break;
         case 3:
             printf("Calma que o menu da turma ja vem");
@@ -35,6 +37,6 @@ int main(int argc, char const *argv[])
         case 5:
             printf("Finalizando app...\n\n");
         }
-    } while (op_menu_principal != 5);
+    } while (op_menu_principal>0 && op_menu_principal<6 );
     return 0;
 }

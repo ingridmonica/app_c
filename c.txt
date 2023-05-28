@@ -34,7 +34,8 @@ void imprimir_professor(Professor *professor)
     printf("Matrícula: %s", professor->matricula);
     printf("Nome: %s", professor->nome);
     printf("CPF: %s", professor->cpf);
-    printf("Endereço: %s", professor->endereco);
+    printf("Endereço: %s", professor->endereco); 
+    
 }
 
 void imprimir_turma(Turma *turma)

@@ -18,5 +18,13 @@ void imprimir_aluno(Aluno *aluno);
 void imprimir_endereco(Endereco *endereco);
 
 void imprimir_aluno_atualizado(Atualizar_aluno *atualizarAluno);
+void tratador_menu_prof(Professor **professores, int *qtd_atual_prof);
+
+Professor *construir_professor();
+
+Professor *buscar_professor(Professor **professores, int *posicao);
+
+void imprimir_professor(Professor *professor);
+
 
 #endif
