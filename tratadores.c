@@ -3,6 +3,7 @@
 #include <stdio.h>
 #include "constantes.h"
 #include <string.h>
+#include "dados.h"
 
 void tratador_menu_aluno(Aluno **alunos, int *qtd_atual_aluno)
 {
@@ -48,10 +49,30 @@ void tratador_menu_aluno(Aluno **alunos, int *qtd_atual_aluno)
     break;
     case 3:
     {
-        printf("Implementar a atualização de aluno\n");
+        int posicao = 0;
+        Atualizar_aluno *atualizarAluno = NULL;
+        atualizarAluno = buscar_aluno(alunos, &posicao);
+        if (aluno)
+        {
+            // Atualiza as informações do aluno 
+            printf("Nova matrícula: ");
+            fgets(aluno->matricula, 9, stdin);
+            
+            printf("Novo CPF: ");
+            fgets(aluno->cpf, 11, stdin);
+        
+            printf("Novo nome: ");
+            fgets(aluno->nome, 49, stdin);
+        
+            printf("Aluno atualizado com sucesso!\n");
+        }
+        else
+        {
+            printf("Aluno não encontrado!\n");
+        }
     }
-
     break;
+
     case 4:
     {
         int posicao = 0;
@@ -106,6 +127,20 @@ Aluno *construir_aluno()
     return criarAluno(aluno.matricula, aluno.cpf, aluno.nome, aluno.endereco);
 }
 
+Atualizar_aluno *atualizarAluno()
+{
+    Atualizar_aluno atualizarAluno;
+    // Atualiza as informações do aluno 
+    printf("Nova matrícula: \t> ");
+    fgets(aluno.matricula, 9, stdin);
+    printf("CPF\t> ");
+    fgets(aluno.cpf, 9, stdin);
+    printf("Nome\t> ");
+    fgets(aluno.nome, 49, stdin);
+    Atualizar_aluno.endereco = construir_endereco();
+    return atualizarAluno(aluno.matricula, aluno.cpf, aluno.nome, aluno.endereco);
+}
+
 Aluno *buscar_aluno(Aluno **alunos, int *posicao)
 {
     char matricula[50];
@@ -142,4 +177,12 @@ void imprimir_endereco(Endereco *endereco)
     printf("Bairro: %s", endereco->bairro);
     printf("Cidade: %s", endereco->cidade);
     printf("Estado: %s", endereco->estado);
+}
+
+void imprimir_aluno_atualizado(Atualizar_aluno *atualizarAluno)
+{
+    printf("Matrícula: %s", atualizarAluno->matricula);
+    printf("Nome: %s", atualizarAluno->nome);
+    printf("CPF: %s", atualizarAluno->cpf);
+    imprimir_endereco(atualizarAluno->endereco);
 }

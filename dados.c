@@ -23,6 +23,26 @@ Aluno *criarAluno(char *matricula,
     return aluno;
 }
 
+Atualizar_aluno *atualizarAluno(char *matricula,
+                                char *cpf,
+                                char *nome,
+                                Endereco *end);
+{
+    Aluno *atualizarAluno = (Atualizar_aluno *)malloc(sizeof(Atualizar_aluno));
+    if (atualizarAluno)
+    {
+        strcpy(atualizarAluno->matricula, matricula);
+        strcpy(atualizarAluno->cpf, cpf);
+        strcpy(atualizarAluno->nome, nome);
+        atualizarAluno->endereco = end;
+    }
+    else
+    {
+        perror("Erro na atualização. Encerrando\n\n");
+    }
+    return atualizarAluno;
+}
+
 Endereco *criarEndereco(char *logradouro,
                         char *bairro,
                         char *cidade,
@@ -44,6 +64,7 @@ Endereco *criarEndereco(char *logradouro,
     }
     return endereco;
 }
+
 
 void destruirAluno(Aluno *aluno)
 {

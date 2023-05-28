@@ -7,6 +7,7 @@ Endereco *construir_endereco();
 
 Aluno *construir_aluno();
 
+Atualizar_aluno *atualizarAluno();
 /*
     Busca um aluno
 */
@@ -15,5 +16,7 @@ Aluno *buscar_aluno(Aluno **alunos, int *posicao);
 void imprimir_aluno(Aluno *aluno);
 
 void imprimir_endereco(Endereco *endereco);
+
+void imprimir_aluno_atualizado(Atualizar_aluno *atualizarAluno);
 
 #endif
