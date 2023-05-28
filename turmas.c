@@ -7,34 +7,35 @@
 #include "turmas.h"
 
 
-Turma * construir_turma()
+
+Turmas * construir_turma()
 {
-    Turma turma;
-    printf("Código\t> ");
+    Turmas turma;
+    printf("Digite o codigo da turma: ");
     fgets(turma.codigo, 9, stdin);
-    printf("Nome da disciplina\t> ");
-    fgets(turma.nome_disciplina, 49, stdin);
-    printf("Professor\t> ");
-    fgets(turma.matriculaProf, 49, stdin);
-    printf("Lista de Alunos\t> ");
-    fgets(turma.lista_alunos, 49, stdin);
-    printf("Média da turma\t> ");
-    fgets(turma.media_turma, 49, stdin);
-
-    return criarTurma(turma.codigo, turma.nome_disciplina, turma.matriculaProf, turma.lista_alunos, turma.media_turma);
+    printf("Digite o nome da disciplina: ");
+    fgets(turma.disciplina, 50, stdin);
+    printf("Digite a matricula do professor responsavel: ");
+    fgets(turma.matricula_professor_responsavel, 9, stdin);
+    printf("Digite o numero de alunos: ");
+    fgets(turma.numero_alunos, 9, stdin);
+    printf("Digite a matricula dos alunos: ");
+    fgets(turma.matricula_alunos, 9, stdin);
+    printf("Digite a media da turma: ");
+    fgets(turma.media_turma, 9, stdin);
 }
 
-
-void imprimir_turma(Turma *turma)
+void imprimir_turma(Turmas *turma)
 {
-    printf("Código: %s", turma->codigo);
-    printf("Nome da disciplina: %s", turma->nome_disciplina);
-    printf("Professor: %s", turma->matriculaProf);
-    printf("Lista de Alunos: %s", turma->lista_alunos);
-    printf("Média da turma: %s", turma->media_turma);
+    printf("Codigo da turma: %s\n", turma->codigo);
+    printf("Nome da disciplina: %s\n", turma->disciplina);
+    printf("Matricula do professor responsavel: %s\n", turma->matricula_professor_responsavel);
+    printf("Numero de alunos: %s\n", turma->numero_alunos);
+    printf("Matricula dos alunos: %s\n", turma->matricula_alunos);
+    printf("Media da turma: %s\n", turma->media_turma);
 }
 
-void destruir_turma(Turma *turma)
+void destruir_turma(Turmas *turma)
 {
     free(turma);
 }

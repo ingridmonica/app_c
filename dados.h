@@ -28,12 +28,13 @@ typedef struct
 
 typedef struct
 {
-    char codigo[6];
-    char nome_disciplina[50];
-    char matriculaProf[10];
-    char lista_alunos;
-    char media_turma;
-} Turma;
+    char codigo[10];
+    char disciplina[50];
+    char matricula_professor_responsavel[10];
+    char numero_alunos[10];
+    char matricula_alunos[10];
+    char media_turma[10];
+} Turmas;
 
 #endif 
 
@@ -54,16 +55,17 @@ Professor *criarProfessor(
                             char *nome,
                             Endereco *end);
 
-Turma *criarTurma(
-                char *codigo,
-                char *nome_disciplina,
-                char *matriculaProf,
-                char *lista_alunos,
-                char media_turma);
+Turmas *criarTurma(
+                    char *codigo,
+                    char *disciplina,
+                    char *matricula_professor_responsavel,
+                    char *numero_alunos,
+                    char *matricula_alunos,
+                    char *media_turma);
 
 
 
 void destruirAluno(Aluno *aluno);
 void destruirEndereco(Endereco *end);
 void destruirProfessor(Professor *professor);
-void destruirTurma(Turma *turma);
+void destruirTurma(Turmas *turma);

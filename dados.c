@@ -65,6 +65,31 @@ Professor *criarProfessor(char *matricula,
     }
     return professor;
 }
+
+Turmas *criar_turma(char *codigo,
+                    char *nome_disciplina,
+                    char *matricula_professor_responsavel,
+                    int qtd_alunos_matriculados,
+                    char *matricula_alunos,
+                    char *media_turma)
+                    {
+                        Turmas *turmas = (Turmas *)malloc(sizeof(Turmas));
+                        if (turmas)
+                        {
+                            strcpy(turmas->codigo, codigo);
+                            strcpy(turmas->disciplina, nome_disciplina);
+                            strcpy(turmas->matricula_professor_responsavel, matricula_professor_responsavel);
+                                                        
+                            strcpy(turmas->matricula_alunos, matricula_alunos);
+                            strcpy(turmas->media_turma, media_turma);
+                        }
+                        else
+                        {
+                            perror("Não há memória disponível. Encerrando\n\n");
+                        }
+                        return turmas;
+                    }
+
 /*
 Turma *criarTurma(char *codigo,
                   char *nome_disciplina,
@@ -111,7 +136,7 @@ void destruirProfessor(Professor *professor)
         free(professor);
 }
 
-void destruirTurma(Turma *turma)
+void destruirTurma(Turmas *turma)
 {
     if (turma)
         free(turma);
