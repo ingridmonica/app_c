@@ -93,7 +93,7 @@ int menu_crud_turma()
     } while (1);
 }
 
-int menu_estatisticas()
+int menu_estatistica()
 {
     int opcao = 0;
     do

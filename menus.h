@@ -4,7 +4,7 @@ int menu_principal();
 int menu_crud_aluno();
 int menu_crud_professor();
 int menu_crud_turma();
-int menu_estatisticas();
+int menu_estatistica();
 int menu_sair();
 
 #endif

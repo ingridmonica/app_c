@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include "constantes.h"
 #include <string.h>
-//#include "turmas.h"
+#include "dados.h"
 
 void tratador_menu_aluno(Aluno **alunos, int *qtd_atual_aluno)
 {
@@ -220,8 +220,10 @@ Aluno *buscar_aluno(Aluno **alunos, int *posicao)
     return resultado;
 }
 
-
-
+void tratador_estatistica()
+{
+    int opcao = menu_estatistica();
+}
 
 void imprimir_aluno(Aluno *aluno)
 {

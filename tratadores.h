@@ -30,5 +30,10 @@ void imprimir_professor(Professor *professor);
 
 //turmas
 
+void tratar_menu_turmas(Turmas **turma, int *qtd_alunos_matriculados);
+
+//estatisticas
+
+void tratador_estatistica();
 
 #endif

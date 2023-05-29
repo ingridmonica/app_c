@@ -3,7 +3,6 @@
 #include "dados.h"
 #include <stdio.h>
 #include "constantes.h"
-#include "turmas.h"
 
 
 int main(int argc, char const *argv[])
@@ -33,8 +32,7 @@ int main(int argc, char const *argv[])
             tratar_menu_turmas(turmas, &qtd_alunos_matriculados);
             break;
         case 4:
-            printf("Calma q as estatisticas ja vem\n");
-            //tratador_menu_estatisticas();
+            tratador_estatistica();
             break;
         case 5:
             printf("Finalizando app...\n\n");
