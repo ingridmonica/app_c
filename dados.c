@@ -79,7 +79,7 @@ Turmas *criar_turma(char *codigo,
                             strcpy(turmas->codigo, codigo);
                             strcpy(turmas->disciplina, nome_disciplina);
                             strcpy(turmas->matricula_professor_responsavel, matricula_professor_responsavel);
-                                                        
+                            sprintf(turmas->qtd_alunos_matriculados, "%d", qtd_alunos_matriculados);                     
                             strcpy(turmas->matricula_alunos, matricula_alunos);
                             strcpy(turmas->media_turma, media_turma);
                         }
@@ -138,6 +138,7 @@ void destruirProfessor(Professor *professor)
 
 void destruirTurma(Turmas *turma)
 {
-    if (turma)
+    if (turma){
         free(turma);
+}
 }

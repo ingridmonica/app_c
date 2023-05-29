@@ -31,7 +31,7 @@ typedef struct
     char codigo[10];
     char disciplina[50];
     char matricula_professor_responsavel[10];
-    char numero_alunos[10];
+    char qtd_alunos_matriculados[3];
     char matricula_alunos[10];
     char media_turma[10];
 } Turmas;

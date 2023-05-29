@@ -3,6 +3,7 @@
 #include "dados.h"
 #include <stdio.h>
 #include "constantes.h"
+#include "turmas.h"
 
 
 int main(int argc, char const *argv[])
@@ -15,6 +16,7 @@ int main(int argc, char const *argv[])
     int qtd_atual_aluno = 0;
     int qtd_atual_prof = 0;
     int qtd_atual_turma = 0;
+    int qtd_alunos_matriculados = 0;
 
     do
     {
@@ -28,8 +30,7 @@ int main(int argc, char const *argv[])
             tratador_menu_prof(professores, &qtd_atual_prof);
             break;
         case 3:
-            printf("Calma que o menu da turma ja vem");
-            //tratador_menu_turma(turmas, &qtd_atual_turma, professores, &qtd_atual_prof);
+            tratar_menu_turmas(turmas, &qtd_alunos_matriculados);
             break;
         case 4:
             printf("Calma q as estatisticas ja vem\n");
