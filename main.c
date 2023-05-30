@@ -20,7 +20,7 @@ int main(int argc, char const *argv[])
     int numProfessores = 0;
     int numTurmas = 0;
 
-    carregarDados(alunos, &qtd_atual_aluno, professores, &qtd_atual_prof, turmas, &qtd_atual_turma);
+    carregarDados(alunos, &qtd_atual_aluno, professores, &qtd_atual_prof, turmas, qtd_atual_turma);
 
     do
     {

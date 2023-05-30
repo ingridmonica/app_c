@@ -4,8 +4,8 @@
 #include "dados.h"
 //include "turmas.c"
 
-void carregarDados(Aluno** alunos, int* qtd_atual_aluno, Professor** professores, int* qtd_atual_professores, Turmas** turmas, int qtd_atual_turmas);
-void salvarDados(Aluno** alunos, int qtd_atual_aluno, Professor** professores, int qtd_atual_professores, Turmas** turmas, int qtd_atual_turmas);
+void carregarDados(Aluno** alunos, int* qtd_atual_aluno, Professor** professores, int* qtd_atual_prof, Turmas** turmas, int qtd_atual_turma);
+void salvarDados(Aluno** alunos, int qtd_atual_aluno, Professor** professores, int qtd_atual_prof, Turmas** turmas, int qtd_atual_turma);
 
 //alunos 
 void tratador_menu_aluno(Aluno **alunos, int *qtd_atual_aluno);

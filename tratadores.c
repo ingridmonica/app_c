@@ -6,9 +6,10 @@
 #include "dados.h"
 #include <stdlib.h>
 
-void salvarDados(Aluno** alunos, int qtd_atual_aluno, Professor** professores, int qtd_atual_professores, Turmas** turmas, int qtd_atual_turmas)
+void salvarDados(Aluno** alunos, int qtd_atual_aluno, Professor** professores, int qtd_atual_prof, Turmas** turmas, int qtd_atual_turma)
 {
-    FILE* arquivo = fopen("dados.bin", "wb");
+    FILE* arquivo;
+    arquivo = fopen("dados.bin", "wb");
     if (arquivo == NULL) {
         printf("Erro ao abrir o arquivo\n");
         return;
@@ -17,22 +18,22 @@ void salvarDados(Aluno** alunos, int qtd_atual_aluno, Professor** professores, i
     fwrite(&qtd_atual_aluno, sizeof(int), 1, arquivo);
     for (int i = 0; i < qtd_atual_aluno; i++) {
         if (alunos[i] != NULL) {
-            fwrite(alunos[i], sizeof(Aluno), 1, arquivo);
+            fwrite(alunos[i], sizeof(Aluno), 100, arquivo);
         }
     }
 
-    fwrite(&qtd_atual_professores, sizeof(int), 1, arquivo);
-    for (int i = 0; i < qtd_atual_professores; i++) {
+    fwrite(&qtd_atual_prof, sizeof(int), 1, arquivo);
+    for (int i = 0; i < qtd_atual_prof; i++) {
         if (professores[i] != NULL) {
-            fwrite(professores[i], sizeof(Professor), 1, arquivo);
+            fwrite(professores[i], sizeof(Professor), 100, arquivo);
         }
     }
 
     //turmas
-    fwrite(&qtd_atual_turmas, sizeof(int), 1, arquivo);
-    for (int i = 0; i < qtd_atual_turmas; i++) {
+    fwrite(&qtd_atual_turma, sizeof(int), 1, arquivo);
+    for (int i = 0; i < qtd_atual_turma; i++) {
         if (turmas[i] != NULL) {
-            fwrite(turmas[i], sizeof(Turmas), 1, arquivo);
+            fwrite(turmas[i], sizeof(Turmas), 100, arquivo);
         }
     }
 
@@ -40,9 +41,10 @@ void salvarDados(Aluno** alunos, int qtd_atual_aluno, Professor** professores, i
     printf("Dados salvos com sucesso!\n");
 }
 
-void carregarDados(Aluno** alunos, int* qtd_atual_aluno, Professor** professores, int* qtd_atual_professores, Turmas** turmas, int qtd_atual_turmas)
+void carregarDados(Aluno** alunos, int* qtd_atual_aluno, Professor** professores, int* qtd_atual_prof, Turmas** turmas, int qtd_atual_turma)
 {
-    FILE* arquivo = fopen("dados.bin", "rb");
+    FILE* arquivo;
+    arquivo = fopen("dados.bin", "rb");
     if (arquivo == NULL) {
         printf("Arquivo de dados não encontrado. Criando novo arquivo...\n");
         return;
@@ -51,21 +53,21 @@ void carregarDados(Aluno** alunos, int* qtd_atual_aluno, Professor** professores
     fread(qtd_atual_aluno, sizeof(int), 1, arquivo);
     for (int i = 0; i < *qtd_atual_aluno; i++) {
         Aluno* aluno = (Aluno*)malloc(sizeof(Aluno));
-        fread(aluno, sizeof(Aluno), 1, arquivo);
+        fread(aluno, sizeof(Aluno), 100, arquivo);
         alunos[i] = aluno;
     }
 
-    fread(qtd_atual_professores, sizeof(int), 1, arquivo);
-    for (int i = 0; i < *qtd_atual_professores; i++) {
+    fread(qtd_atual_prof, sizeof(int), 1, arquivo);
+    for (int i = 0; i < *qtd_atual_prof; i++) {
         Professor* professor = (Professor*)malloc(sizeof(Professor));
-        fread(professor, sizeof(Professor), 1, arquivo);
+        fread(professor, sizeof(Professor), 100, arquivo);
         professores[i] = professor;
     }
     //turmas
-    fread(qtd_atual_turmas, sizeof(int), 1, arquivo);
-    for (int i = 0; i < qtd_atual_turmas; i++) {
+    fread(&qtd_atual_turma, sizeof(int), 1, arquivo);
+    for (int i = 0; i < qtd_atual_turma; i++) {
         Turmas* turma = (Turmas*)malloc(sizeof(Turmas));
-        fread(turma, sizeof(Turmas), 1, arquivo);
+        fread(turma, sizeof(Turmas), 100, arquivo);
         turmas[i] = turma;
     }
 
