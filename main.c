@@ -16,6 +16,11 @@ int main(int argc, char const *argv[])
     int qtd_atual_prof = 0;
     int qtd_atual_turma = 0;
     int qtd_alunos_matriculados = 0;
+    int numAlunos = 0;
+    int numProfessores = 0;
+    int numTurmas = 0;
+
+    carregarDados(alunos, &qtd_atual_aluno, professores, &qtd_atual_prof, turmas, &qtd_atual_turma);
 
     do
     {
@@ -32,11 +37,14 @@ int main(int argc, char const *argv[])
             tratar_menu_turmas(turmas, &qtd_alunos_matriculados);
             break;
         case 4:
-            tratador_estatistica();
+            tratador_menu_estatisticas(alunos, numAlunos, professores, numProfessores, turmas, numTurmas);
             break;
         case 5:
             printf("Finalizando app...\n\n");
         }
-    } while (op_menu_principal>0 && op_menu_principal<5 );
+    } while (op_menu_principal > 0 && op_menu_principal < 5);
+
+    salvarDados(alunos, qtd_atual_aluno, professores, qtd_atual_prof, turmas, qtd_atual_turma);
+
     return 0;
 }

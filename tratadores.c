@@ -4,6 +4,77 @@
 #include "constantes.h"
 #include <string.h>
 #include "dados.h"
+#include <stdlib.h>
+
+void salvarDados(Aluno** alunos, int qtd_atual_aluno, Professor** professores, int qtd_atual_professores, Turmas** turmas, int qtd_atual_turmas)
+{
+    FILE* arquivo = fopen("dados.bin", "wb");
+    if (arquivo == NULL) {
+        printf("Erro ao abrir o arquivo\n");
+        return;
+    }
+
+    fwrite(&qtd_atual_aluno, sizeof(int), 1, arquivo);
+    for (int i = 0; i < qtd_atual_aluno; i++) {
+        if (alunos[i] != NULL) {
+            fwrite(alunos[i], sizeof(Aluno), 1, arquivo);
+        }
+    }
+
+    fwrite(&qtd_atual_professores, sizeof(int), 1, arquivo);
+    for (int i = 0; i < qtd_atual_professores; i++) {
+        if (professores[i] != NULL) {
+            fwrite(professores[i], sizeof(Professor), 1, arquivo);
+        }
+    }
+
+    //turmas
+    fwrite(&qtd_atual_turmas, sizeof(int), 1, arquivo);
+    for (int i = 0; i < qtd_atual_turmas; i++) {
+        if (turmas[i] != NULL) {
+            fwrite(turmas[i], sizeof(Turmas), 1, arquivo);
+        }
+    }
+
+    fclose(arquivo);
+    printf("Dados salvos com sucesso!\n");
+}
+
+void carregarDados(Aluno** alunos, int* qtd_atual_aluno, Professor** professores, int* qtd_atual_professores, Turmas** turmas, int qtd_atual_turmas)
+{
+    FILE* arquivo = fopen("dados.bin", "rb");
+    if (arquivo == NULL) {
+        printf("Arquivo de dados não encontrado. Criando novo arquivo...\n");
+        return;
+    }
+
+    fread(qtd_atual_aluno, sizeof(int), 1, arquivo);
+    for (int i = 0; i < *qtd_atual_aluno; i++) {
+        Aluno* aluno = (Aluno*)malloc(sizeof(Aluno));
+        fread(aluno, sizeof(Aluno), 1, arquivo);
+        alunos[i] = aluno;
+    }
+
+    fread(qtd_atual_professores, sizeof(int), 1, arquivo);
+    for (int i = 0; i < *qtd_atual_professores; i++) {
+        Professor* professor = (Professor*)malloc(sizeof(Professor));
+        fread(professor, sizeof(Professor), 1, arquivo);
+        professores[i] = professor;
+    }
+    //turmas
+    fread(qtd_atual_turmas, sizeof(int), 1, arquivo);
+    for (int i = 0; i < qtd_atual_turmas; i++) {
+        Turmas* turma = (Turmas*)malloc(sizeof(Turmas));
+        fread(turma, sizeof(Turmas), 1, arquivo);
+        turmas[i] = turma;
+    }
+
+
+    fclose(arquivo);
+    printf("Dados carregados com sucesso!\n");
+}
+
+//menu alunos
 
 void tratador_menu_aluno(Aluno **alunos, int *qtd_atual_aluno)
 {
@@ -370,5 +441,76 @@ void tratador_menu_prof(Professor **professores, int *qtd_atual_prof){
     default:
         printf("Retornando ao menu principal\n");
 
+}
+}
+
+void listarProfessores(const Professor* professores, int numProfessores) 
+    {
+    printf("Lista de professores:\n");
+    for (int i = 0; i < numProfessores; i++) {
+        printf("Professor %d:\n", i + 1);
+        printf("Matrícula: %d\n", professores[i].matricula);
+        printf("CPF: %s\n", professores[i].cpf);
+        printf("Nome: %s\n", professores[i].nome);
+    }
+    }
+
+void listarProfessoresSemTurmas(const Professor* professores, int numProfessores, const Turmas* turmas, int numTurmas) {
+    printf("Matrículas dos professores sem turmas:\n");
+    for (int i = 0; i < numProfessores; i++) {
+        int possuiTurma = 0;
+        for (int j = 0; j < numTurmas; j++) {
+            if (turmas[j].matricula_professor_responsavel == professores[i].matricula) {
+                possuiTurma = 1;
+                break;
+            }
+        }
+        if (!possuiTurma) {
+            printf("Matrícula: %d\n", professores[i].matricula);
+        }
+    }
+    }
+
+    void calcularMediaGeralTurmas(const Turmas* turmas, int numTurmas) {
+    float somaNotas = 0;
+    int numTurmasValidas = 0;
+    int i = 0;
+    int notaMedia = atoi(turmas[i].media_turma);
+    for (int i = 0; i < numTurmas; i++) {
+        if (notaMedia != 0) {
+            somaNotas += notaMedia;
+            numTurmasValidas++;
+        }
+    }
+    if (numTurmasValidas > 0) {
+        float mediaGeral = somaNotas / numTurmasValidas;
+        printf("Média geral das turmas: %.2f\n", mediaGeral);
+    } else {
+        printf("Não há turmas cadastradas com notas.\n");
+    }
+    }
+
+
+void tratador_menu_estatisticas(Aluno** alunos, int numAlunos, Professor** professores, int numProfessores, Turmas** turmas, int numTurmas)
+{
+    int opcao = menu_estatistica();
+    switch (opcao)
+    {
+    case 1:
+        {
+          void listarProfessores(const Professor* professores, int numProfessores);
+        }
+        break;
+
+    case 2:
+    {
+        void listarProfessoresSemTurmas(const Professor* professores, int numProfessores, const Turmas* turmas, int numTurmas);
+        }
+        break;
+    case 3:
+    {
+        void calcularMediaGeralTurmas(const Turmas* turmas, int numTurmas);
+    }
+        break;
 }
 }
