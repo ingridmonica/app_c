@@ -1,27 +1,31 @@
-#include "menus.h"
-#include <stdio.h>
+#include "menus.h"  // Inclui o arquivo de cabeçalho "menus.h"
+#include <stdio.h>  // Inclui a biblioteca de entrada/saída padrão
 
 int menu_principal()
 {
-    int opcao = 0;
+    int opcao = 0;  // Declara e inicializa a variável 'opcao' com o valor 0
+
     do
     {
-        printf("== Menu principal==\n\n");
-        printf("1 - Menu aluno\n");
-        printf("2 - Menu professor\n");
-        printf("3 - Menu turma\n");
-        printf("4 - Estatisticas\n");
-        printf("5 - Sair\n");
-        printf("Opcao > ");
-        scanf("%d", &opcao);
-        getchar();
-        if (opcao > 0 && opcao < 6)
+        printf("== Menu principal==\n\n");  // Exibe o título do menu principal
+        printf("1 - Menu aluno\n");  // Exibe a opção para acessar o menu de aluno
+        printf("2 - Menu professor\n");  // Exibe a opção para acessar o menu de professor
+        printf("3 - Menu turma\n");  // Exibe a opção para acessar o menu de turma
+        printf("4 - Estatisticas\n");  // Exibe a opção para acessar o menu de estatísticas
+        printf("5 - Sair\n");  // Exibe a opção para sair do programa
+        printf("Opcao > ");  // Solicita ao usuário que digite a opção desejada
+        scanf("%d", &opcao);  // Lê a opção digitada pelo usuário e a armazena na variável 'opcao'
+        getchar();  // Consome o caractere de nova linha deixado pelo 'scanf()'
+
+        if (opcao > 0 && opcao < 6)  // Verifica se a opção selecionada está entre 1 e 5 (inclusive)
         {
-            return opcao;
-        } else {
-        printf("Opcao inválida!! Tente novamente\n\n");
+            return opcao;  // Retorna a opção selecionada
         }
-    } while (1);
+        else
+        {
+            printf("Opcao inválida!! Tente novamente\n\n");  // Exibe uma mensagem de erro para uma opção inválida
+        }
+    } while (1);  // Loop infinito para garantir que o menu seja exibido até que uma opção válida seja selecionada
 }
 
 int menu_crud_aluno()
