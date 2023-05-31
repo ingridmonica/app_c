@@ -22,10 +22,10 @@ Este repositório contém o trabalho desenvolvido para a disciplina de Linguagem
 ### Instalação
 1. Clone este repositório.
 2. Abra o terminal e navegue até o diretório do projeto.
-3. Compile o código utilizando o comando `gcc -o programa main.c`.
+3. Compile o código utilizando o comando `gcc -o program.exe main.c`.
 
 ## Executando o Programa
-1. No terminal, execute o comando `./programa`.
+1. No terminal, execute o comando `./program.exe`.
 2. Siga as instruções do menu principal para interagir com as diferentes funcionalidades do programa.
 
 
