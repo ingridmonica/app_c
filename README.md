@@ -31,5 +31,5 @@ Este repositório contém o trabalho desenvolvido para a disciplina de Linguagem
 
 ## Ferramentas Utilizadas
 
-- IDE: Vs Code
-- Linguagem: Linguagem C
+- IDE: VS Code
+- Linguagem: C
