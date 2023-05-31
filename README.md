@@ -1,50 +1,35 @@
-# exemplo-app-c
+# Trabalho de Linguagem de Programação - IFAL
 
-## O que a aplicação já implementa?
-* Menu inicial com opção de aluno
-* Menu de aluno com opções de:
-  * Criação de aluno
-  * Busca de aluno
-  * Deleção de aluno
-## Próximos passos
-* Implementar a atualização de um aluno
-* Criar modelo de dados de Professor e Turmas
-* Implementar menus de Professor e Turma para realização das operações de CRUD (Criação, recuperação, atualização e deleção)
-* Adicionar um menu denominado "Estatística" no menu principal com as seguintes opções:
-    * Imprimir nome dos professores
-    * Imprimir matrículas dos professores que não estão em nenhuma turma
-    * Calcular nota média de todas as turmas
-* Persistir os dados da aplicaç
-
-### Restrições
-* O sistema não deve permitir a inserção de dois alunos com matrículas ouo cpf iguais
-* O sistema não deve permitir a inserção de dois professores com matrículas ouo cpf iguais
-* O sistema não deve permitir a inserção de duas turmas com códigos iguais
-* O sistema não deve permitir que um aluno seja deletado caso esteja associado a alguma turma
-* O sistema não deve permitir que um professor seja deletado caso ele esteja associado a uma turma
+Este repositório contém o trabalho desenvolvido para a disciplina de Linguagem de Programação do curso de Sistemas de Informações do Instituto Federal de Alagoas (IFAL). O projeto consiste em uma aplicação em linguagem C que possui funcionalidades relacionadas a alunos, professores, turmas e estatísticas.
 
 
+### Ministrada pelo Professor
+
+- Prof. Dr. [Ivo Augusto Andrade Rocha Calado](https://github.com/ivocalado) - [Instituto Federal de Alagoas](https://www.ifal.edu.br)
+
+### Pessoas autoras
+
+- [Christianny Kelly Silva dos Santos](https://github.com/chrixtianny)
+- [Haul Muller de Oliveira Silva](https://github.com/HaulMuller) 
+- [Ingrid Mônica da Silva Bezerra](https://github.com/ingrimonica)
 
 
+## Configuração
 
-## Modelos de dados
+### Pré-requisitos
+- Compilador C (incluir versão específica, se necessário)
 
-```
-Professor:
-  * matricula
-  * nome
-  * cpf
-  * endereco
+### Instalação
+1. Clone este repositório.
+2. Abra o terminal e navegue até o diretório do projeto.
+3. Compile o código utilizando o comando `gcc -o programa main.c`.
 
-Turma:
-  * codigo
-  * nome_disciplina
-  * professor
-  * lista_alunos
-  * media_turma
-```
+## Executando o Programa
+1. No terminal, execute o comando `./programa`.
+2. Siga as instruções do menu principal para interagir com as diferentes funcionalidades do programa.
 
-## Sobre a entrega
-* Grupos de 4 alunos
-* Data de entrega: 29/06
-* Forma de entrega: apresentação em sala
+
+## Ferramentas Utilizadas
+
+- IDE: VS Code
+- Linguagem: C
